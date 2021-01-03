@@ -6,8 +6,8 @@ import Search from './Search';
 import $ from 'jquery';
 
 class QuestionView extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       questions: [],
       page: 1,
@@ -60,7 +60,7 @@ class QuestionView extends Component {
 
   getByCategory= (id) => {
     $.ajax({
-      url: `/categories/${id}/questions`, //TODO: update request URL
+      url: `/categories/${id}/questions`, //TODO: update request URL, no idea if better, but think it makes sense to have questions first, as they are shown..
       type: "GET",
       success: (result) => {
         this.setState({
@@ -141,7 +141,7 @@ class QuestionView extends Component {
               key={q.id}
               question={q.question}
               answer={q.answer}
-              category={this.state.categories[q.category]} 
+              category={this.state.categories[q.category]}
               difficulty={q.difficulty}
               questionAction={this.questionAction(q.id)}
             />
