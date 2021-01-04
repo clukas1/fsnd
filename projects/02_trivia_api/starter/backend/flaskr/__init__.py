@@ -171,7 +171,8 @@ def create_app(test_config=None):
                     'current_category': None,
                     'current_page': page
                 })
-            except:
+            except Exception as e:
+                print(e)
                 abort(422)
 
         else:
@@ -196,7 +197,8 @@ def create_app(test_config=None):
                     'question': question.format(),
                     'total_questions': Question.query.count()
                 })
-            except:
+            except Exception as e:
+                print(e)
                 abort(400)
 
     '''
@@ -229,9 +231,9 @@ def create_app(test_config=None):
                 'categories': get_formatted_categories(),
                 'current_category': category_id,
             })
-        except:
+        except Exception as e:
+            print(e)
             abort(400)
-
     '''
     @TODO:
     Create a POST endpoint to get questions to play the quiz.
@@ -280,7 +282,8 @@ def create_app(test_config=None):
                     index += 1
                 else:
                     question = questions[index]
-            except:
+            except Exception as e:
+                print(e)
                 abort(422)
 
         return jsonify({
