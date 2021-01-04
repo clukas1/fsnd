@@ -45,12 +45,26 @@ To run the server, execute:
 ```bash
 export FLASK_APP=flaskr
 export FLASK_ENV=development
-flask run
 ```
+
+If not using standard postgres host parameters you also need to set the environement variables for the database connection.
+
+```
+export DB_HOST={custom host url, default:127.0.0.1:5432}
+export DB_USER={custom psql user name, default:postgres}
+export DB_PASSWORD={custom psql user password, default: postgres}
+export DB_NAME={custom db name, default: trivia}
+````
+
+Then finally run `flask run` to start the app.
 
 Setting the `FLASK_ENV` variable to `development` will detect file changes and restart the server automatically.
 
 Setting the `FLASK_APP` variable to `flaskr` directs flask to use the `flaskr` directory and the `__init__.py` file to find the application.
+
+
+
+*Note that the command "export" only applies for UNIX systems. For DOS systems use "SET".*
 
 ## Tasks
 
